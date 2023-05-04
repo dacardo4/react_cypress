@@ -1,7 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router,Route, Routes,useRoutes  } from "react-router-dom";
+// Routes
+import publicRoutesList from "./routes/publicRoutes";
+import PublicRoute from "./routes/PublicRoute";
+import Login from "./pages/login";
+import Register from "./pages/register";
 
-function App() {
+const AppWrapper = () => {
+  let routes = useRoutes([
+    { path: "/", element: <Register /> },
+    { path: "login", element: <Login /> }
+  ]);
+  return routes;
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppWrapper />
+    </Router>
+  );
+};
+
+function AppOld() {
   return (
     <div className="App">
       <header className="App-header">
